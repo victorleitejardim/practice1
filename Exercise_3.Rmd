@@ -29,8 +29,9 @@ read_wildfinder
 
 Let's select only the Ursidae species
 ```{r cars}
-final_table <- read_wildfinder(fam = "Ursidae")
-
+library(targets)
+#final_table <- read_wildfinder(fam = "Ursidae")
+tar_load(final_table)
 head(final_table)
 ```
 
@@ -59,10 +60,12 @@ sp_ecoreg$species <- forcats::fct_reorder(sp_ecoreg$species, sp_ecoreg$n_ecoregi
 ## Let's check the differences
 
 ```{r}
+library(ggplot2)
+ggplot(sp_ecoreg, ggplot2::aes(x = species, y = n_ecoregions, fill = species))+
+  geom_bar(stat = "identity")+
+  scale_fill_viridis_d()+
+  labs(x = "Species", y = "Number of ecoregions")+
+  theme(legend.position = "bottom", axis.text.x = ggplot2::element_text(angle = 45, vjust = 0.4))
 
-ggplot2::ggplot(sp_ecoreg, ggplot2::aes(x = species, y = n_ecoregions, fill = species))+
-  ggplot2::geom_bar(stat = "identity")+
-  ggplot2::scale_fill_viridis_d()+
-  ggplot2::labs(x = "Species", y = "Number of ecoregions")+
-  ggplot2::theme(legend.position = "bottom", axis.text.x = ggplot2::element_text(angle = 45, vjust = 0.4))
+
 ```

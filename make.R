@@ -13,7 +13,7 @@ remotes::install_deps(upgrade = "never")
 
 ## Load Project Addins (R Functions and Packages) ----
 
-pkgload::load_all()
+# pkgload::load_all()
 
 
 ## Run Project ----
