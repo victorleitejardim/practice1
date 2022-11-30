@@ -19,3 +19,6 @@ pkgload::load_all()
 ## Run Project ----
 
 source(here::here("analyses", "download-data.R"))
+
+## Knit the Rmarkdown ----
+rmarkdown::render(here::here("Exercise_3.Rmd"))
