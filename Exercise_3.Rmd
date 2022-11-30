@@ -18,7 +18,7 @@ editor_options:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Exercise 3. 
+# Exercise 3.
 
 Using the function to read, join and select only the Ursidae species from the wildfinder database "read_wildfinder", let's load the full table
 
@@ -31,7 +31,7 @@ final_table <- read_wildfinder()
 
 Count the number of ecoregions where you can find each species
 
-```{r pressure, echo=FALSE}
+```{r pressure, echo=TRUE}
 res <- list()
 for (i in final_table$sci_name){
   res[[i]] <- length(unique(final_table$ecoregion[final_table$sci_name == i]))
@@ -45,7 +45,7 @@ sp_ecoreg$species <- gsub("\\.", " ", sp_ecoreg$species)
 
 ```
 
-Let's show that
+## Let's show that
 
 ```{r}
 
