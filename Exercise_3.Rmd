@@ -20,7 +20,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Exercise 3.
 
-Using the function to read, join and select only the Ursidae (we can select any species with parameter **fam**) species from the wildfinder database "read_wildfinder", let's load the full table
+Using the function to read, join and select only the Ursidae species (we can select any specific family with parameter **fam**)  from the wildfinder database "read_wildfinder", let's load the full table
 
 ```{r cars}
 
