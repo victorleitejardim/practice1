@@ -1,0 +1,11 @@
+name|type|data|command|depend|seed|path|time|size|bytes|format|repository|iteration|parent|children|seconds|warnings|error
+dl_data_descr|function|929eec9581f6aa4c|||||||||||||||
+dl_pantheria_data|function|cdf75650123f89a8|||||||||||||||
+dl_wildfinder_data|function|b98bbe6a41084edf|||||||||||||||
+Exercise_3|stem|1111fe1183f61f1e|a8e7d3c72026a849|3c69e1b9905c93fd|497226352|Exercise_3.html*Exercise_3.Rmd|t19326.6980864135s|9e91511e1ca1c57b|1374716|file|local|vector|||1.048||
+final_table|stem|6220eed19a0d69d8|3dca4f8e21061250|4d822cc0bed125ed|-1502954289||t19326.6892087562s|f607e969aa34f720|6437|rds|local|vector|||0.363||
+make_plot|function|8851ce96889c999b|||||||||||||||
+make_sp_ecoreg|function|a07d1ef5fb771f65|||||||||||||||
+plot|stem|05e3ea277cdb6bec|c506bdb619289f9f|4e32e6d272a3e966|1931196220||t19326.6917706824s|41200f7f0df0ebd3|96|rds|local|vector|||0.348||
+read_wildfinder|function|d28cd9ade61b44c6|||||||||||||||
+sp_ecoreg|stem|49bf6589b60ae6e9|55e1cc5218fc4e43|46b4ab935d4dd7cf|-2127986154||t19326.6892096519s|f2a5e99bcf184b36|287|rds|local|vector|||0.018||

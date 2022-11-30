@@ -40,32 +40,36 @@ head(final_table)
 Count the number of ecoregions where you can find each species
 
 ```{r pressure, echo=TRUE}
-res <- list()
-for (i in final_table$sci_name){
-  res[[i]] <- length(unique(final_table$ecoregion[final_table$sci_name == i]))
-}
+# res <- list()
+# for (i in final_table$sci_name){
+#   res[[i]] <- length(unique(final_table$ecoregion[final_table$sci_name == i]))
+# }
+# 
+# sp_ecoreg <- as.data.frame(t(as.data.frame(res))) 
+# sp_ecoreg <- sp_ecoreg |>
+#   tibble::rownames_to_column(var = "species") |> 
+#   dplyr::rename(n_ecoregions = V1)
+# sp_ecoreg$species <- gsub("\\.", " ", sp_ecoreg$species)
+# sp_ecoreg <- sp_ecoreg |>
+#   dplyr::mutate(species = as.factor(species))
+# 
+# sp_ecoreg$species <- forcats::fct_reorder(sp_ecoreg$species, sp_ecoreg$n_ecoregions)
 
-sp_ecoreg <- as.data.frame(t(as.data.frame(res))) 
-sp_ecoreg <- sp_ecoreg |>
-  tibble::rownames_to_column(var = "species") |> 
-  dplyr::rename(n_ecoregions = V1)
-sp_ecoreg$species <- gsub("\\.", " ", sp_ecoreg$species)
-sp_ecoreg <- sp_ecoreg |>
-  dplyr::mutate(species = as.factor(species))
-
-sp_ecoreg$species <- forcats::fct_reorder(sp_ecoreg$species, sp_ecoreg$n_ecoregions)
-
+tar_load(sp_ecoreg)
+head(sp_ecoreg)
 ```
 
 ## Let's check the differences
 
 ```{r}
-library(ggplot2)
-ggplot(sp_ecoreg, ggplot2::aes(x = species, y = n_ecoregions, fill = species))+
-  geom_bar(stat = "identity")+
-  scale_fill_viridis_d()+
-  labs(x = "Species", y = "Number of ecoregions")+
-  theme(legend.position = "bottom", axis.text.x = ggplot2::element_text(angle = 45, vjust = 0.4))
+# ggplot(sp_ecoreg, ggplot2::aes(x = species, y = n_ecoregions, fill = species))+
+#   geom_bar(stat = "identity")+
+#   scale_fill_viridis_d()+
+#   labs(x = "Species", y = "Number of ecoregions")+
+#   theme(legend.position = "bottom", axis.text.x = ggplot2::element_text(angle = 45, vjust = 0.4))
+
+plot_path <- tar_read(plot)
+knitr::include_graphics(plot_path)
 
 
 ```

@@ -6,9 +6,6 @@
 #' @return
 #' @export
 #'
-#' @examples
-
-
 read_wildfinder <- function(fam = NULL){
   path <- here::here("data", "wildfinder")
   filenames <- list.files(path = path, full.names = TRUE)

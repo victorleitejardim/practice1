@@ -18,7 +18,10 @@ remotes::install_deps(upgrade = "never")
 
 ## Run Project ----
 
-source(here::here("analyses", "download-data.R"))
+#source(here::here("analyses", "download-data.R"))
 
 ## Knit the Rmarkdown ----
-rmarkdown::render(here::here("Exercise_3.Rmd"))
+#rmarkdown::render(here::here("Exercise_3.Rmd"))
+
+targets::tar_visnetwork()
+targets::tar_make()
