@@ -22,9 +22,16 @@ knitr::opts_chunk$set(echo = TRUE)
 
 Using the function to read, join and select only the Ursidae species (we can select any specific family with parameter **fam**)  from the wildfinder database "read_wildfinder", let's load the full table
 
-```{r cars}
+Check the function out if you will:
+```{r}
+read_wildfinder
+```
 
+Let's select only the Ursidae species
+```{r cars}
 final_table <- read_wildfinder(fam = "Ursidae")
+
+head(final_table)
 ```
 
 ## Let's take a look at the data
@@ -42,10 +49,14 @@ sp_ecoreg <- sp_ecoreg |>
   tibble::rownames_to_column(var = "species") |> 
   dplyr::rename(n_ecoregions = V1)
 sp_ecoreg$species <- gsub("\\.", " ", sp_ecoreg$species)
+sp_ecoreg <- sp_ecoreg |>
+  dplyr::mutate(species = as.factor(species))
+
+sp_ecoreg$species <- forcats::fct_reorder(sp_ecoreg$species, sp_ecoreg$n_ecoregions)
 
 ```
 
-## Let's show that
+## Let's check the differences
 
 ```{r}
 
